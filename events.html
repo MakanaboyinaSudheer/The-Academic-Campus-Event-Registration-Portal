@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Events — Campus Event Portal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="dashboard-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-brand">
+        <div class="brand-icon">🎓</div>
+        <span class="brand-text">CampusEvents</span>
+      </div>
+      <div class="sidebar-user">
+        <div class="user-avatar" style="background:linear-gradient(135deg,#3B82F6,#10B981)">🎒</div>
+        <div class="user-info">
+          <div class="user-name" id="studentName">Student</div>
+          <div class="user-role">Student Portal</div>
+        </div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Navigation</div>
+      <a href="student-dashboard.html"><span class="nav-icon">🏠</span> Dashboard</a>
+      <a href="events.html" class="active"><span class="nav-icon">📅</span> Browse Events</a>
+      <a href="my-registrations.html"><span class="nav-icon">📋</span> My Registrations</a>
+      <a href="contact.html"><span class="nav-icon">💬</span> Contact Admin</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn btn-secondary btn-full btn-sm" onclick="studentLogout()">🚪 Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+
+    <div class="page-header">
+      <div>
+        <h1>📅 Browse Events</h1>
+        <p>Discover and register for upcoming campus events</p>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="card" style="margin-bottom:24px">
+      <div class="card-body" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:16px 24px">
+        <div class="search-bar" style="flex:1;min-width:200px">
+          <span>🔍</span>
+          <input type="text" id="searchEvents" placeholder="Search by name, venue, category…" />
+        </div>
+        <div>
+          <select id="categoryFilter" class="form-control" style="min-width:160px">
+            <option value="">All Categories</option>
+            <option>Technology</option>
+            <option>Cultural</option>
+            <option>Sports</option>
+            <option>Academic</option>
+            <option>Workshop</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- EVENTS GRID -->
+    <div class="events-grid" id="eventsContainer">
+      <div style="text-align:center;padding:60px;color:var(--text-secondary);grid-column:1/-1">
+        <div style="font-size:40px;margin-bottom:12px">⏳</div>
+        Loading events…
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- REGISTRATION MODAL -->
+<div class="modal-overlay" id="regModal" style="display:none">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>🎟 Register for Event</h2>
+      <button class="modal-close" onclick="closeRegModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="alert alert-info" style="margin-bottom:20px">
+        <span>📅</span> <strong id="modalEventName">Event</strong>
+      </div>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="regName" class="form-control" readonly style="opacity:0.7" />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Roll Number</label>
+          <input type="text" id="regRoll" class="form-control" readonly style="opacity:0.7" />
+        </div>
+        <div class="form-group">
+          <label>Department</label>
+          <input type="text" id="regDept" class="form-control" readonly style="opacity:0.7" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="regEmail" class="form-control" readonly style="opacity:0.7" />
+      </div>
+      <div class="alert alert-success" style="font-size:0.85rem">
+        ✅ Your details are pre-filled. Click Confirm to register!
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeRegModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="submitRegistration()">✅ Confirm Registration</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.querySelector('.sidebar').classList.toggle('open');
+      document.getElementById('sidebarOverlay').classList.toggle('open');
+    });
+    document.getElementById('sidebarOverlay').addEventListener('click', () => {
+      document.querySelector('.sidebar').classList.remove('open');
+      document.getElementById('sidebarOverlay').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>

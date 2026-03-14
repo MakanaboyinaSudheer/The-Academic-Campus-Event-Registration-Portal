@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Registration — Campus Event Portal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="auth-wrapper">
+  <!-- LEFT PANEL -->
+  <div class="auth-left" style="background:linear-gradient(135deg,#3B82F6 0%,#10B981 100%)">
+    <div class="auth-left-content">
+      <a href="index.html" class="navbar-brand" style="margin-bottom:32px;display:inline-flex">
+        <div class="brand-icon" style="background:rgba(255,255,255,0.2)">🎓</div>
+        <span class="brand-text" style="color:#fff;-webkit-text-fill-color:#fff">CampusEvents</span>
+      </a>
+      <h2>Join the Campus<br>Event Experience!</h2>
+      <p>Create your student account in seconds and unlock access to all campus events, workshops, fests, and more.</p>
+      <ul class="auth-features">
+        <li><div class="feat-icon">🎉</div> Browse All Campus Events</li>
+        <li><div class="feat-icon">⚡</div> Instant One-Click Registration</li>
+        <li><div class="feat-icon">📋</div> Track Your Registrations</li>
+        <li><div class="feat-icon">💬</div> Contact Admin Directly</li>
+        <li><div class="feat-icon">🏆</div> Never Miss an Opportunity</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="auth-right">
+    <div class="auth-form-container" style="max-width:480px">
+      <a href="index.html" class="logo-link">
+        <div class="brand-icon">🎓</div>
+        <span class="brand-text">CampusEvents</span>
+      </a>
+      <h1>Create Account</h1>
+      <p class="subtitle">Register as a student to access campus events</p>
+
+      <div id="formError" class="alert" style="display:none"></div>
+
+      <form id="studentRegForm">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" class="form-control" placeholder="e.g. Rahul Sharma" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="roll">Roll Number *</label>
+            <input type="text" id="roll" class="form-control" placeholder="e.g. CS2025001" required />
+          </div>
+          <div class="form-group">
+            <label for="dept">Department *</label>
+            <select id="dept" class="form-control" required>
+              <option value="">Select dept.</option>
+              <option>Computer Science</option>
+              <option>Electronics</option>
+              <option>Mechanical</option>
+              <option>Civil</option>
+              <option>Business</option>
+              <option>Arts</option>
+              <option>Science</option>
+              <option>Commerce</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">College Email *</label>
+          <input type="email" id="email" class="form-control" placeholder="you@campus.edu" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password *</label>
+          <input type="password" id="password" class="form-control" placeholder="Min. 6 characters" required minlength="6" />
+          <div class="form-hint">Use at least 6 characters</div>
+        </div>
+        <button type="submit" class="btn btn-success btn-full btn-lg" style="margin-top:8px">
+          🎒 Create Student Account
+        </button>
+      </form>
+
+      <hr class="divider" />
+      <p class="text-center text-muted" style="font-size:0.9rem">
+        Already have an account? <a href="student-login.html" class="link-accent">Login →</a>
+      </p>
+      <p class="text-center" style="margin-top:8px">
+        <a href="index.html" class="link-accent" style="font-size:0.85rem">← Back to Home</a>
+      </p>
+    </div>
+  </div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

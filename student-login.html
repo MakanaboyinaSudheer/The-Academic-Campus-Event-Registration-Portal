@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Login — Campus Event Portal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="auth-wrapper">
+  <!-- LEFT PANEL -->
+  <div class="auth-left" style="background:linear-gradient(135deg,#3B82F6 0%,#10B981 100%)">
+    <div class="auth-left-content">
+      <a href="index.html" class="navbar-brand" style="margin-bottom:32px;display:inline-flex">
+        <div class="brand-icon" style="background:rgba(255,255,255,0.2)">🎓</div>
+        <span class="brand-text" style="color:#fff;-webkit-text-fill-color:#fff">CampusEvents</span>
+      </a>
+      <h2>Welcome Back,<br>Student!</h2>
+      <p>Log in to access your personalized event dashboard. Discover, register, and make memories on campus!</p>
+      <ul class="auth-features">
+        <li><div class="feat-icon">🎉</div> Browse All Campus Events</li>
+        <li><div class="feat-icon">⚡</div> Register in One Click</li>
+        <li><div class="feat-icon">📋</div> View My Registrations</li>
+        <li><div class="feat-icon">💬</div> Contact Admin</li>
+      </ul>
+      <div style="margin-top:40px;padding:16px;background:rgba(255,255,255,0.15);border-radius:12px">
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.9)">New here? <a href="student-register.html" style="color:#fff;font-weight:700">Create an account →</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="auth-right">
+    <div class="auth-form-container">
+      <a href="index.html" class="logo-link">
+        <div class="brand-icon">🎓</div>
+        <span class="brand-text">CampusEvents</span>
+      </a>
+      <h1>Student Login</h1>
+      <p class="subtitle">Sign in to your student account</p>
+
+      <div id="formError" class="alert" style="display:none"></div>
+
+      <form id="studentLoginForm">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-control" placeholder="Your password" required />
+        </div>
+        <button type="submit" class="btn btn-success btn-full btn-lg" style="margin-top:8px">
+          🎒 Login to Dashboard
+        </button>
+      </form>
+
+      <hr class="divider" />
+      <p class="text-center text-muted" style="font-size:0.9rem">
+        Don't have an account? <a href="student-register.html" class="link-accent">Register here →</a>
+      </p>
+      <p class="text-center" style="margin-top:8px">
+        Admin? <a href="admin-login.html" class="link-accent" style="font-size:0.88rem">Admin Login →</a>
+      </p>
+      <p class="text-center" style="margin-top:8px">
+        <a href="index.html" class="link-accent" style="font-size:0.85rem">← Back to Home</a>
+      </p>
+    </div>
+  </div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

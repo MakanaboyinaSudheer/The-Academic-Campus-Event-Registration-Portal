@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Campus Event Portal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <div class="brand-icon">🎓</div>
+    <span class="brand-text">CampusEvents</span>
+  </a>
+  <ul class="navbar-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <div class="navbar-actions">
+    <a href="student-dashboard.html" class="btn btn-primary btn-sm" id="dashboardLink" style="display:none">My Dashboard</a>
+    <a href="student-login.html" class="btn btn-primary btn-sm" id="loginLink">Student Login</a>
+  </div>
+</nav>
+
+<div class="contact-layout">
+  <!-- LEFT: INFO -->
+  <div class="contact-info">
+    <div style="margin-bottom:20px">
+      <span class="hero-badge" style="font-size:0.8rem">📬 Get in Touch</span>
+    </div>
+    <h2>Contact the <span style="background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Admin Team</span></h2>
+    <p>Have questions about an event? Want to suggest something? Facing an issue? Our admin team is here to help!</p>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon">📧</div>
+      <div>
+        <div style="font-weight:600">Email Us</div>
+        <div style="color:var(--text-secondary);font-size:0.9rem">admin@campus.com</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon">📍</div>
+      <div>
+        <div style="font-weight:600">Location</div>
+        <div style="color:var(--text-secondary);font-size:0.9rem">Admin Block, Campus Office</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon">⏰</div>
+      <div>
+        <div style="font-weight:600">Office Hours</div>
+        <div style="color:var(--text-secondary);font-size:0.9rem">Mon–Sat, 9:00 AM – 5:00 PM</div>
+      </div>
+    </div>
+
+    <div style="margin-top:36px;padding:24px;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius)">
+      <h4 style="margin-bottom:12px">💡 Quick Tips</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:0.88rem;color:var(--text-secondary)">✅ For event queries, mention the event name</li>
+        <li style="font-size:0.88rem;color:var(--text-secondary)">✅ Include your roll number for faster help</li>
+        <li style="font-size:0.88rem;color:var(--text-secondary)">✅ Admin responds within 24 hours</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RIGHT: FORM -->
+  <div class="contact-form-card">
+    <h3 style="margin-bottom:6px">Send a Message</h3>
+    <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:28px">Fill the form below and admin will get back to you shortly.</p>
+
+    <div id="formSuccess" class="alert alert-success" style="display:none">
+      <span>✅</span> Your message has been sent! Admin will respond soon.
+    </div>
+
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="contactName">Your Name *</label>
+        <input type="text" id="contactName" class="form-control" placeholder="Full name" required />
+      </div>
+      <div class="form-group">
+        <label for="contactEmail">Email Address *</label>
+        <input type="email" id="contactEmail" class="form-control" placeholder="your@email.com" required />
+      </div>
+      <div class="form-group">
+        <label for="contactMessage">Message *</label>
+        <textarea id="contactMessage" class="form-control" rows="5" placeholder="Write your message here…" required style="resize:vertical"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full btn-lg">
+        📨 Send Message
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 <strong>CampusEvents Portal</strong> · All rights reserved</p>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (auth.isStudentLoggedIn()) {
+      document.getElementById('dashboardLink').style.display = 'inline-flex';
+      document.getElementById('loginLink').style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>

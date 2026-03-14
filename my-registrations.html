@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Registrations — Campus Event Portal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="dashboard-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-brand">
+        <div class="brand-icon">🎓</div>
+        <span class="brand-text">CampusEvents</span>
+      </div>
+      <div class="sidebar-user">
+        <div class="user-avatar" style="background:linear-gradient(135deg,#3B82F6,#10B981)">🎒</div>
+        <div class="user-info">
+          <div class="user-name" id="studentName">Student</div>
+          <div class="user-role">Student Portal</div>
+        </div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Navigation</div>
+      <a href="student-dashboard.html"><span class="nav-icon">🏠</span> Dashboard</a>
+      <a href="events.html"><span class="nav-icon">📅</span> Browse Events</a>
+      <a href="my-registrations.html" class="active"><span class="nav-icon">📋</span> My Registrations</a>
+      <a href="contact.html"><span class="nav-icon">💬</span> Contact Admin</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn btn-secondary btn-full btn-sm" onclick="studentLogout()">🚪 Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+
+    <div class="page-header">
+      <div>
+        <h1>📋 My Registrations</h1>
+        <p>All events you have registered for</p>
+      </div>
+      <a href="events.html" class="btn btn-primary">+ Register for More</a>
+    </div>
+
+    <div id="myRegsContainer">
+      <div style="text-align:center;padding:60px;color:var(--text-secondary)">Loading…</div>
+    </div>
+  </main>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.querySelector('.sidebar').classList.toggle('open');
+      document.getElementById('sidebarOverlay').classList.toggle('open');
+    });
+    document.getElementById('sidebarOverlay').addEventListener('click', () => {
+      document.querySelector('.sidebar').classList.remove('open');
+      document.getElementById('sidebarOverlay').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>

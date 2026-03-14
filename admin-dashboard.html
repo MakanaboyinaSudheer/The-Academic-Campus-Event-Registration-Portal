@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Campus Event Portal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- SIDEBAR OVERLAY (mobile) -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="dashboard-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-brand">
+        <div class="brand-icon">🎓</div>
+        <span class="brand-text">CampusEvents</span>
+      </div>
+      <div class="sidebar-user" style="margin-top:16px">
+        <div class="user-avatar">🛡️</div>
+        <div class="user-info">
+          <div class="user-name">Administrator</div>
+          <div class="user-role">admin@campus.com</div>
+        </div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <a href="#overview" class="active" onclick="showSection('overview',this)">
+        <span class="nav-icon">📊</span> Overview
+      </a>
+      <div class="nav-section-label">Events</div>
+      <a href="#events" onclick="showSection('events',this)">
+        <span class="nav-icon">📅</span> Manage Events
+      </a>
+      <div class="nav-section-label">Students</div>
+      <a href="#registrations" onclick="showSection('registrations',this)">
+        <span class="nav-icon">📋</span> Registrations
+      </a>
+      <div class="nav-section-label">Communication</div>
+      <a href="#messages" onclick="showSection('messages',this)">
+        <span class="nav-icon">💬</span> Messages
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn btn-secondary btn-full btn-sm" onclick="adminLogout()">🚪 Logout</button>
+      <p style="font-size:0.75rem;color:var(--text-secondary);margin-top:12px;text-align:center">Campus Event Portal v1.0</p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <!-- TOPBAR -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <h2 style="font-size:1.1rem;font-weight:600" id="sectionTitle">Overview</h2>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <button class="btn btn-primary btn-sm" id="addEventBtn">➕ Add Event</button>
+      </div>
+    </div>
+
+    <!-- ===== OVERVIEW SECTION ===== -->
+    <section id="section-overview">
+      <div class="welcome-banner">
+        <div class="welcome-banner-content">
+          <h2>👋 Welcome, Administrator!</h2>
+          <p>Here's what's happening on campus today. All data syncs automatically with the student portal.</p>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-icon icon-purple">📅</div>
+          <div class="stat-card-info">
+            <div class="stat-val" id="statEvents">0</div>
+            <div class="stat-lbl">Total Events</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon icon-yellow">📋</div>
+          <div class="stat-card-info">
+            <div class="stat-val" id="statRegistrations">0</div>
+            <div class="stat-lbl">Registrations</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon icon-green">👥</div>
+          <div class="stat-card-info">
+            <div class="stat-val" id="statStudents">0</div>
+            <div class="stat-lbl">Registered Students</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon icon-pink">💬</div>
+          <div class="stat-card-info">
+            <div class="stat-val" id="statMessages">0</div>
+            <div class="stat-lbl">Messages</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick actions -->
+      <div class="card">
+        <div class="card-header">
+          <h3>⚡ Quick Actions</h3>
+        </div>
+        <div class="card-body" style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="showSection('events',null);document.getElementById('addEventBtn').click()">➕ Add New Event</button>
+          <button class="btn btn-secondary" onclick="showSection('registrations',null)">📋 View Registrations</button>
+          <button class="btn btn-secondary" onclick="showSection('messages',null)">💬 Read Messages</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EVENTS SECTION ===== -->
+    <section id="section-events" style="display:none">
+      <div class="card">
+        <div class="card-header">
+          <h3>📅 All Events</h3>
+          <div class="search-bar">
+            <span>🔍</span>
+            <input type="text" id="searchEvents" placeholder="Search events…" />
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Event ID</th>
+                <th>Event Name</th>
+                <th>Date</th>
+                <th>Venue</th>
+                <th>Registrations</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="eventsTableBody">
+              <tr><td colspan="6" class="text-center" style="padding:40px">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REGISTRATIONS SECTION ===== -->
+    <section id="section-registrations" style="display:none">
+      <div class="card">
+        <div class="card-header">
+          <h3>📋 Student Registrations</h3>
+          <span class="badge badge-purple" id="regsCount">0 total</span>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Roll Number</th>
+                <th>Email</th>
+                <th>Event Name</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="regsTableBody">
+              <tr><td colspan="5" class="text-center" style="padding:40px">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MESSAGES SECTION ===== -->
+    <section id="section-messages" style="display:none">
+      <div class="card">
+        <div class="card-header">
+          <h3>💬 Contact Messages</h3>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="msgsTableBody">
+              <tr><td colspan="4" class="text-center" style="padding:40px">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ADD EVENT MODAL -->
+<div class="modal-overlay" id="addEventModal" style="display:none">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>➕ Add New Event</h2>
+      <button class="modal-close" id="closeModal">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="addEventForm">
+        <div class="form-group">
+          <label>Event Name *</label>
+          <input type="text" id="evName" class="form-control" placeholder="e.g. Annual Tech Symposium" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Category *</label>
+            <select id="evCategory" class="form-control" required>
+              <option value="">Select category</option>
+              <option>Technology</option>
+              <option>Cultural</option>
+              <option>Sports</option>
+              <option>Academic</option>
+              <option>Workshop</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Max Participants *</label>
+            <input type="number" id="evMax" class="form-control" placeholder="100" min="1" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description *</label>
+          <textarea id="evDesc" class="form-control" rows="3" placeholder="Describe the event…" required style="resize:vertical"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date *</label>
+            <input type="date" id="evDate" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label>Time *</label>
+            <input type="time" id="evTime" class="form-control" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Venue *</label>
+          <input type="text" id="evVenue" class="form-control" placeholder="e.g. Main Auditorium" required />
+        </div>
+        <div class="modal-footer" style="padding:0;margin-top:8px">
+          <button type="button" class="btn btn-secondary" id="cancelModal">Cancel</button>
+          <button type="submit" class="btn btn-primary">🚀 Create Event</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+  // Section navigation
+  function showSection(name, linkEl) {
+    document.querySelectorAll('[id^="section-"]').forEach(s => s.style.display = 'none');
+    document.getElementById('section-' + name).style.display = 'block';
+    document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+    if (linkEl) linkEl.classList.add('active');
+    const titles = { overview:'Overview', events:'Manage Events', registrations:'Registrations', messages:'Messages' };
+    document.getElementById('sectionTitle').textContent = titles[name] || name;
+
+    // Refresh data
+    if (name === 'events') renderEventsTable();
+    if (name === 'registrations') {
+      renderRegistrationsTable();
+      const regs = store.get(KEYS.REGISTRATIONS);
+      document.getElementById('regsCount').textContent = regs.length + ' total';
+    }
+    if (name === 'messages') renderMessagesTable();
+  }
+
+  // Mobile menu toggle
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    document.querySelector('.sidebar').classList.toggle('open');
+    document.getElementById('sidebarOverlay').classList.toggle('open');
+  });
+  document.getElementById('sidebarOverlay').addEventListener('click', () => {
+    document.querySelector('.sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+  });
+
+  document.getElementById('cancelModal').addEventListener('click', () => {
+    document.getElementById('addEventModal').style.display = 'none';
+  });
+</script>
+</body>
+</html>

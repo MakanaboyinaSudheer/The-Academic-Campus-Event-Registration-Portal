@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Event Portal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <div class="brand-icon">🎓</div>
+    <span class="brand-text">CampusEvents</span>
+  </a>
+  <ul class="navbar-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="navbar-actions">
+    <a href="admin-login.html" class="btn btn-secondary btn-sm">Admin Login</a>
+    <a href="student-login.html" class="btn btn-primary btn-sm">Student Login</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🎉 Campus Events & Activities Platform</div>
+  <h1>Your Campus, <span>Your Events,</span><br>Your Story</h1>
+  <p>Discover amazing events, connect with peers, and make the most of your campus life. Register for workshops, cultural fests, sports, and more!</p>
+  <div class="hero-actions">
+    <a href="student-register.html" class="btn btn-primary btn-lg">🚀 Get Started</a>
+    <a href="student-login.html" class="btn btn-secondary btn-lg">👤 Student Login</a>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-number" id="statEventsCount">3+</div>
+    <div class="stat-label">Live Events</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number" id="statStudentsCount">0+</div>
+    <div class="stat-label">Registered Students</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number" id="statRegsCount">0+</div>
+    <div class="stat-label">Total Registrations</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">5+</div>
+    <div class="stat-label">Departments</div>
+  </div>
+</div>
+
+<!-- PORTALS SECTION -->
+<section class="portals-section">
+  <h2>Choose Your Portal</h2>
+  <p class="sub">Access the right portal based on your role</p>
+  <div class="portals-grid">
+    <a href="admin-login.html" class="portal-card admin-portal">
+      <div class="portal-icon admin-icon">🛡️</div>
+      <h3>Admin Portal</h3>
+      <p>Manage events, view registrations, monitor contact messages and oversee the entire campus event ecosystem.</p>
+      <span class="btn btn-primary">Login as Admin →</span>
+    </a>
+    <a href="student-login.html" class="portal-card student-portal">
+      <div class="portal-icon student-icon">🎒</div>
+      <h3>Student Portal</h3>
+      <p>Browse events, register for activities, track your registrations, and engage with campus life seamlessly.</p>
+      <span class="btn btn-success">Login as Student →</span>
+    </a>
+  </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="features-section">
+  <h2>Everything You Need</h2>
+  <div class="features-grid">
+    <div class="feature-item">
+      <div class="feature-icon">📅</div>
+      <h4>Event Management</h4>
+      <p>Admins can create, manage and delete events in real-time with instant student portal updates.</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">⚡</div>
+      <h4>Instant Registration</h4>
+      <p>Students can register for events with a single click. No paperwork, no hassle.</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">📊</div>
+      <h4>Live Analytics</h4>
+      <p>Track registration counts, capacity, and participation stats in real-time dashboards.</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🔒</div>
+      <h4>Secure Portals</h4>
+      <p>Separate login portals for Admin and Students with role-based access control.</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">💬</div>
+      <h4>Contact System</h4>
+      <p>Built-in messaging system for students to reach admin directly from the portal.</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">📱</div>
+      <h4>Mobile Friendly</h4>
+      <p>Fully responsive design works beautifully on all devices — desktop, tablet, and mobile.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 <strong>CampusEvents Portal</strong> · Built for Academic Excellence</p>
+  <p style="margin-top:8px">Admin: <strong>admin@campus.com</strong> / <strong>admin123</strong></p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
