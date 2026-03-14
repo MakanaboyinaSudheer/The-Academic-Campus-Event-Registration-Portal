@@ -1,2 +1,17 @@
-# The-Academic-Campus-Event-Registration-Portal
-It is a web application that manages college events with separate Admin and Student portals. Admin can create, update, and delete events, view registrations, and check student messages. Students can log in, view events, register, and contact admin. All admin updates are reflected in the student portal.
+## Academic Campus Event & Registration Portal – Complete Project Description
+
+The **Academic Campus Event & Registration Portal** is a web-based application developed to simplify the management and participation of academic events within a college or university campus. Educational institutions regularly conduct various events such as seminars, workshops, technical fests, hackathons, guest lectures, and cultural programs. Managing these events manually can be difficult, time-consuming, and prone to errors. This system provides a **centralized digital platform** where administrators can manage events and students can easily access and register for them.
+
+The portal consists of **two main user roles: Admin and Student**, each having different functionalities and access permissions.
+
+The **Admin** is responsible for managing the entire event system. Through the admin portal, the administrator can create new events by filling out the required event details such as event name, description, date, time, venue, and participant limit. The admin can also update or delete existing events whenever necessary. All the events created by the admin are automatically displayed in the student portal so that students can view the latest information. Additionally, the admin can monitor the number of registrations made for each event and view them in a **tabular format**, making it easier to track participation. The admin can also view the **messages or queries submitted by students** through the contact section of the portal.
+
+The **Student** portal allows students to log in and explore all available campus events. Students can view event details such as the event title, description, date, and venue. If they are interested in participating, they can register for the event by filling in their personal details such as name, roll number, department, and email. Once the registration is completed, the information is stored in the system and becomes visible to the admin for monitoring and management.
+
+One of the key features of the system is **data synchronization between the admin and student portals**. Whenever the admin adds, updates, or deletes an event, the changes are immediately reflected in the student portal. Similarly, when students register for an event, the registration count is automatically updated in the admin dashboard.
+
+The project is developed using **HTML, CSS, and JavaScript**, providing a responsive and user-friendly interface. HTML is used to structure the web pages, CSS is used for styling and layout design, and JavaScript handles the functionality such as login authentication, event management, registration processing, and data storage. For simulation purposes, **localStorage** is used to store and manage data within the browser.
+
+The system includes several pages such as the **Home page, Admin Login, Student Login, Admin Dashboard, Events Page, Registration Page, and Contact Page**, all connected through proper navigation. The admin dashboard provides an overview of events and registrations, while the student interface focuses on event discovery and participation.
+
+Overall, the **Academic Campus Event & Registration Portal** helps improve event organization within a campus by providing a structured platform for event announcements, registrations, and communication between students and administrators. It reduces manual work, improves efficiency, and ensures that students always have access to updated event information.
